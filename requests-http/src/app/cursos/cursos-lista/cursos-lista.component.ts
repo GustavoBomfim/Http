@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CursosService } from './cursos.service';
 //preserveWhitespacesDefault: true
 import { Observable, empty, of, Subject, EMPTY } from 'rxjs';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, switchMap, delay } from 'rxjs/operators';
 import { Curso } from './curso';
 
 
@@ -34,6 +34,7 @@ export class CursosListaComponent implements OnInit {
        // map(),
        // tap(),
        // switchMap(),
+       delay(3000),
        catchError(error => {
          console.error(error);
          this.error$.next(true);
